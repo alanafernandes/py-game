@@ -102,3 +102,39 @@ class Game():
             self.planet_group.draw(self.janela) 
             self.grupo_inimigo.update() 
             self.grupo_inimigo.draw(self.janela)
+            
+            if len(self.grupo_inimigo) <5: 
+                for i in range(5):
+                    self.inimigo = Inimigo()
+                    self.grupo_inimigo.add(self.inimigo)
+                    print("adicionou mais um")
+
+
+            if self.pontos_jogador > 500:
+                self.inimigo.velocidade  = 2
+                self.nivel = 1
+                self.placar_nivel = self.font.render("NÍVEL: "+ str(self.nivel),1,(255,255,255))
+            if self.pontos_jogador > 800:
+                self.inimigo.velocidade  = 3
+                self.nivel = 2
+                self.placar_nivel = self.font.render("NÍVEL: "+ str(self.nivel),1,(255,255,255))
+            if self.pontos_jogador > 1000:
+                self.inimigo.velocidade  = 4
+                self.nivel = 3
+                self.placar_nivel = self.font.render("NÍVEL: "+ str(self.nivel),1,(255,255,255))
+            if self.pontos_jogador > 1500:
+                self.inimigo.velocidade  = 6
+                self.nivel = 4
+                self.placar_nivel = self.font.render("NÍVEL: "+ str(self.nivel),1,(255,255,255))
+            if self.pontos_jogador > 1900:
+                self.inimigo.velocidade  = 8
+                self.nivel = 5
+                self.placar_nivel = self.font.render("NÍVEL: "+ str(self.nivel),1,(255,255,255))
+            if self.pontos_jogador > 2200:
+                self.inimigo.velocidade  = 9
+                self.nivel = 6
+                self.placar_nivel = self.font.render("NÍVEL: "+ str(self.nivel),1,(255,255,255))
+            if self.pontos_jogador > 3000:
+                self.inimigo.velocidade  = 12
+                self.nivel = "NÍVEL FINAL"
+                self.placar_nivel = self.font.render("NÍVEL: "+ str(self.nivel),1,(255,255,255))
