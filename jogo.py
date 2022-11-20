@@ -138,3 +138,37 @@ class Game():
                 self.inimigo.velocidade  = 12
                 self.nivel = "NÍVEL FINAL"
                 self.placar_nivel = self.font.render("NÍVEL: "+ str(self.nivel),1,(255,255,255))
+
+            for bullet in self.tiros_grupo:
+                self.tiros_grupo.draw(self.janela) 
+                if self.jogador_tiro.rect[1]< -20: 
+                    self.tiros_grupo.remove(self.jogador_tiro) 
+                    print('tiro removido')
+
+
+            if (pygame.sprite.groupcollide(self.tiros_grupo, self.grupo_inimigo, True, True)):
+                self.pontos_jogador += random.randint(1,10)
+                self.placar = self.font.render("PONTOS: " + str(self.pontos_jogador), 1, (255,255,255))
+                pygame.mixer.Channel(2).play(pygame.mixer.Sound("sons/som_inimigo.wav")) 
+                pygame.mixer.Channel(2).set_volume(0.1)
+
+            if (pygame.sprite.groupcollide(self.grupo_jogador, self.grupo_inimigo, True, True)):
+                    Game()
+                    morreu()
+                    self.game_init = False
+                    
+                    
+
+            if (pygame.sprite.groupcollide(self.planet_group, self.grupo_inimigo, True, True)):
+                    Game()
+                    morreu()
+                    self.game_init = False
+                    
+                    
+
+
+
+
+            pygame.display.update()
+            
+Game()
