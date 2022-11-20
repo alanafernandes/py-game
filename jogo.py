@@ -44,3 +44,18 @@ class Game():
         self.inimigo_c = True
         self.grupo_inimigo = pygame.sprite.Group()
 
+        self.pontos_jogador = self.jogador.pontos
+        self.font = pygame.font.Font("font/8bit.ttf", 30)
+        self.placar = self.font.render("PONTOS: " + str(self.pontos_jogador), 1, (255,255,255))
+        self.nivel = 0
+        self.inimigo_janela = 5
+        self.placar_nivel = self.font.render("NÍVEL: "+ str(self.nivel),1,(255,255,255))
+
+        pygame.mixer.init()
+        pygame.mixer.set_reserved(0)
+        self.musica = pygame.mixer.Sound("sons/musica_jogo.wav")
+        pygame.mixer.Channel(0).play(self.musica,-1)
+        pygame.mixer.Channel(0).set_volume(0.1)
+
+
+        self.fps = pygame.time.Clock()
