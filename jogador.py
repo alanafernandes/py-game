@@ -39,8 +39,8 @@ class Tiro (pygame.sprite.Sprite):
         self.rect[1] -= self.velocidade
 
 class Planeta (pygame.sprite.Sprite):
-    def init(self):
-        pygame.sprite.Sprite.init(self)
+    def _init_(self):
+        pygame.sprite.Sprite._init_(self)
         self.image = pygame.image.load("img/planeta.png").convert_alpha()
         self.image = pygame.transform.scale(self.image, (1200, 100))
         self.rect = self.image.get_rect()
