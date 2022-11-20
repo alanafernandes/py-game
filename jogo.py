@@ -59,3 +59,35 @@ class Game():
 
 
         self.fps = pygame.time.Clock()
+        
+        self.game_init = True
+        while self.game_init:
+            self.fps.tick(30) 
+            for event in pygame.event.get(): 
+                if event.type == QUIT:
+                    pygame.quit()
+
+                if event.type == KEYDOWN: 
+                    if event.key == K_RIGHT:
+                        self.jogador_direita = True
+                    if event.key == K_LEFT:
+                        self.jogador_esquerda = True
+                    if event.key == K_UP: 
+                        self.jogador_tiro = Tiro() 
+                        self.jogador_tiro.rect[0] = self.jogador.rect[0]+23 
+                        self.jogador_tiro.rect[1] = self.jogador.rect[1]
+                        self.tiros_grupo.add(self.jogador_tiro) 
+                        pygame.mixer.Channel(1).play(pygame.mixer.Sound("sons/som_tiro.wav")) 
+                        pygame.mixer.Channel(1).set_volume(0.1)
+
+
+                if event.type == KEYUP: 
+                    if event.key == K_RIGHT:
+                        self.jogador_direita = False
+                    if event.key == K_LEFT:
+                        self.jogador_esquerda = False
+
+            if self.jogador_direita: 
+                self.jogador.rect[0] += self.jogador.velocidade
+            if self.jogador_esquerda: 
+                self.jogador.rect[0] -= self.jogador.velocidade
