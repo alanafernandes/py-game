@@ -1,7 +1,7 @@
 import pygame, random,  pygame.mixer, time
 from pygame.locals import *
-from scripts.player import Jogador, Tiro, Planeta
-from scripts.enemy import Inimigo
+from scripts.jogador import Jogador, Tiro, Planeta
+from scripts.inimigo import Inimigo
 from funcoes import limparTela, lerTexto, lerArquivo, salvarArquivo
 
 
