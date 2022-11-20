@@ -18,7 +18,7 @@ def salvarArquivo(dados):
 
 def lerTexto(mensagemEntrada):
     nome = input(mensagemEntrada)
-    return valor.upper()
+    return nome.upper()
 
 def limparTela():
     os.system("cls")
