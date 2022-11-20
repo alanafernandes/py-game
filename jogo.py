@@ -91,3 +91,14 @@ class Game():
                 self.jogador.rect[0] += self.jogador.velocidade
             if self.jogador_esquerda: 
                 self.jogador.rect[0] -= self.jogador.velocidade
+
+            self.janela.blit(self.fundo,(0,0)) 
+            self.janela.blit(self.placar,(850,10)) 
+            self.janela.blit(self.placar_nivel,(650,10))
+            self.tiros_grupo.update() 
+            self.grupo_jogador.update() 
+            self.grupo_jogador.draw(self.janela) 
+            self.planet_group.update() 
+            self.planet_group.draw(self.janela) 
+            self.grupo_inimigo.update() 
+            self.grupo_inimigo.draw(self.janela)
