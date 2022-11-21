@@ -2,8 +2,8 @@ import pygame
 from pygame.locals import *
 
 class Jogador (pygame.sprite.Sprite):
-    def _init_(self):
-        pygame.sprite.Sprite._init_(self)
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
 
         self.imagens = [pygame.image.load("img/jogador1.png").convert_alpha(),
                             pygame.image.load("img/jogador2.png").convert_alpha()]
@@ -28,8 +28,8 @@ class Jogador (pygame.sprite.Sprite):
 
 
 class Tiro (pygame.sprite.Sprite):
-    def _init_(self):
-        pygame.sprite.Sprite._init_(self)
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("img/tiro.png").convert_alpha()
         self.rect = self.image.get_rect()
         self.velocidade = 30
@@ -39,16 +39,13 @@ class Tiro (pygame.sprite.Sprite):
         self.rect[1] -= self.velocidade
 
 class Planeta (pygame.sprite.Sprite):
-    def _init_(self):
-        pygame.sprite.Sprite._init_(self)
+    def __init__(self):
+        pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load("img/planeta.png").convert_alpha()
         self.image = pygame.transform.scale(self.image, (1200, 100))
         self.rect = self.image.get_rect()
         self.rect[0] = 0
         self.rect[1] = 560
-
-    def update(self):
-        self.rect[1] -= self.velocidade
 
 
 
